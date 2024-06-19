@@ -1,0 +1,16 @@
+import comp from "G:/文字识别课题/隐秘OCR/OCUR-Docs/src/.vuepress/.temp/pages/zh/index.html.vue"
+const data = JSON.parse("{\"path\":\"/zh/\",\"title\":\"项目主页\",\"lang\":\"zh-CN\",\"frontmatter\":{\"home\":true,\"icon\":\"home\",\"title\":\"项目主页\",\"heroImage\":\"/OCUR.svg\",\"bgImage\":\"https://theme-hope-assets.vuejs.press/bg/6-light.svg\",\"bgImageDark\":\"https://theme-hope-assets.vuejs.press/bg/6-dark.svg\",\"bgImageStyle\":{\"background-attachment\":\"fixed\"},\"heroText\":\"OCUR\",\"tagline\":\"创新的图像隐私文本保护方案。\",\"actions\":[{\"text\":\"快速上手\",\"icon\":\"signs-post\",\"link\":\"./get-started/\",\"type\":\"primary\"},{\"text\":\"用户指南\",\"icon\":\"book\",\"link\":\"./guide/\",\"type\":\"secondary\"}],\"highlights\":[{\"header\":\"易于安装\",\"image\":\"/assets/image/box.svg\",\"bgImage\":\"https://theme-hope-assets.vuejs.press/bg/3-light.svg\",\"bgImageDark\":\"https://theme-hope-assets.vuejs.press/bg/3-dark.svg\",\"highlights\":[{\"title\":\"只需通过运行 setup.exe 安装包，一分钟内即可完成客户端的安装。\",\"link\":\"https://github.com/handsomelky/OCUR/releases/latest\"},{\"title\":\"仅需简单地执行<code>sh setup.sh</code>，即可快速配置服务端环境。\"}]},{\"header\":\"应用场景丰富\",\"description\":\"OCUR 保护您的隐私，适用于各种敏感文档场景。\",\"image\":\"/assets/image/application-scenarios.svg\",\"bgImage\":\"https://theme-hope-assets.vuejs.press/bg/2-light.svg\",\"bgImageDark\":\"https://theme-hope-assets.vuejs.press/bg/2-dark.svg\",\"bgImageStyle\":{\"background-repeat\":\"repeat\",\"background-size\":\"initial\"},\"features\":[{\"title\":\"身份证件与护照\",\"icon\":\"id-card\",\"details\":\"确保您的个人身份信息安全。\"},{\"title\":\"银行账单与金融文档\",\"icon\":\"bank\",\"details\":\"保护您的财务隐私，防止信息泄露。\"},{\"title\":\"医疗报告与健康档案\",\"icon\":\"stethoscope\",\"details\":\"隐私保护对于医疗信息至关重要。\"},{\"title\":\"法律文档与合同\",\"icon\":\"file-contract\",\"details\":\"保护法律文件的完整性和隐私。\"},{\"title\":\"学术论文与研究资料\",\"icon\":\"graduation-cap\",\"details\":\"确保学术研究的原创性和知识产权。\"},{\"title\":\"产品说明书与手册\",\"icon\":\"toolbox\",\"details\":\"提供清晰且受保护的产品使用说明。\"},{\"title\":\"企业合同与协议\",\"icon\":\"handshake\",\"details\":\"促进商业交易的透明度和信任。\"},{\"title\":\"车牌隐私保护\",\"icon\":\"car\",\"details\":\"防止车牌信息被滥用，保护您的行驶隐私。\"}]},{\"header\":\"可定制的页面\",\"description\":\"优雅精美的可定制外观\",\"image\":\"/assets/image/ui.svg\",\"bgImage\":\"https://theme-hope-assets.vuejs.press/bg/9-light.svg\",\"bgImageDark\":\"https://theme-hope-assets.vuejs.press/bg/9-dark.svg\",\"highlights\":[{\"title\":\"深色模式\",\"icon\":\"circle-half-stroke\",\"details\":\"可以自由切换浅色模式与深色模式\",\"link\":\"https://theme-hope.vuejs.press/zh/guide/interface/darkmode.html\"},{\"title\":\"主题色切换\",\"icon\":\"palette\",\"details\":\"支持自定义主题色并允许用户在预设的主题颜色之间切换\",\"link\":\"https://theme-hope.vuejs.press/zh/guide/interface/theme-color.html\"}]}],\"copyright\":false,\"footer\":\"<a href=\\\"https://beian.miit.gov.cn/\\\" target=\\\"_blank\\\"> 粤ICP备2023083766号-2</a> | Copyright © 2024 R1ck\",\"footerHtml\":true,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":1.74,\"words\":521},\"filePathRelative\":\"zh/README.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

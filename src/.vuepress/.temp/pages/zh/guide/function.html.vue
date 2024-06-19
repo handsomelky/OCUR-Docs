@@ -1,0 +1,24 @@
+<template><div><h2 id="响应式-ui-实现" tabindex="-1"><a class="header-anchor" href="#响应式-ui-实现"><span>响应式 UI 实现</span></a></h2>
+<p>为了提高代码的可维护性和复用性，我们将每个页面中的功能细化为了一个个组 件。这些组件均继承自PySide6的原始组件，同时，我们对组件进行了适当的扩展以 满足系统的特定需求。</p>
+<p>我们设计了上传遮罩层InteractiveDropCover类，这是一个创新的交互式拖放覆 盖组件，它通过提供高度互动的图像上传功能，显著简化了用户的文件上传流程。该 组件支持两种主要的文件上传方式：直接通过鼠标拖拽文件到指定区域，以及通过点 击触发文件选择器进行文件选择。当用户成功将文件拖放到目标位置时，我们还为事 件添加了响应样式，实时向用户传递视觉反馈，从而给予用户足够良好的交互体验。</p>
+<p>为了进一步提升用户体验，我们还设计了包含不同底纹强度和样式以及多种OCR 评估模型的下拉菜单。这些选项的实时预览功能和文字说明帮助用户在上传前形成明 确的视觉预期，同时通过直观的界面设计降低了参数配置的复杂性。通过这些优化， InteractiveDropCover不仅提高了文件上传的效率，还确保了用户在操作过程中的舒 适度和满意度。</p>
+<figure><img src="@source/zh/guide/img/interactive_ui.png" alt="响应式UI实例" width="500" tabindex="0" loading="lazy"><figcaption>响应式UI实例</figcaption></figure>
+<h2 id="可视化实现" tabindex="-1"><a class="header-anchor" href="#可视化实现"><span>可视化实现</span></a></h2>
+<p>当用户上传图片后 ，InteractiveDropCover则会变为我们设计的图像浏览窗 ImageViewer。ImageViewer作为功能界面的核心区域，让用户能直观看到自己上传的 图像在施加底纹后的效果，以及模型测试后的可视化图像。</p>
+<p>我们在图像编辑菜单中整合了拖拽按钮、放大/缩小按钮、上一张/下一张按钮， 以及手动划定底纹区域按钮和去除已选区域按钮。在手动划定底纹区域的功能中，我 们以图像预览窗作为“控制中心 ”，通过监听mousePressEvent和mouseMoveEvent，将 子组件的监听信号实时传递 ，从而实现了精确的绘制效果 。此外 ，通过重写 mousePressEvent和mouseMoveEvent，我们实现了在查看大尺寸图像时，用户可以使 用鼠标拖动来自由移动图像来查看不同的部分。</p>
+<p>中间的图像区域我们通过对PySide6中的QGraphicsView类进行功能拓展，实现了 更加定制化的展示效果。在全局底纹界面中，当用户在图像列表中选择不同项，中间的图像区域会切换为对应图像。而在局部底纹界面中，当用户的鼠标悬浮在中间区域 的识别框上，识别框会高亮显示，同时文本列表会自动滚动到该识别框对应的识别文 本行。这样的设计可以极大地优化用户操作逻辑。</p>
+<figure><img src="@source/zh/guide/img/visualization_area.png" alt="ImageViewer区域（左）与识别文本框（右）" width="500" tabindex="0" loading="lazy"><figcaption>ImageViewer区域（左）与识别文本框（右）</figcaption></figure>
+<p>在底纹效果的多维度评估部分，我们通过使用图表库Pyecharts来创建雷达图和 饼图等动态图表，并将其嵌入结果页面中，从而向用户直观展示OCR多维度评估的各 项指标。我们使用了雷达图展示了包括精度、召回率、平衡F分数、识别率和攻击成 功率在内的多个评估数据，并使用饼图用于展示不同底纹效果级别的图像比例。</p>
+<p><img src="@source/zh/guide/img/radar.png" alt="多维评估雷达图" width="350" loading="lazy"><img src="@source/zh/guide/img/piechart.png" alt="底纹效果级别饼图" width="300" loading="lazy"></p>
+<h2 id="多线程异步与用户提示" tabindex="-1"><a class="header-anchor" href="#多线程异步与用户提示"><span>多线程异步与用户提示</span></a></h2>
+<p>为了提升用户体验和操作的直观性，我们在应用中大量使用了信息提示框和状态提示。这些提示不仅提供操作反馈，也指导用户进行正确的操作步骤。</p>
+<p>在批量添加底纹、评估等操作时，为了不阻塞客户端，我们采取了多线程异步的 方式，将请求服务端与客户端界面划分到两个线程，实现了网络请求与UI界面互不阻 塞。我们还实现了进度环，实时显示当前操作的进度，给用户明确的等待提示。同时， 基于PySide6独特的信号与槽的对象间通信机制，我们实现了提示浮标，提示用户当 前正在进行中的操作，当用户切换至其他界面时，该浮标不会消失，直至操作完成。</p>
+<figure><img src="@source/zh/guide/img/progress_ring.png" alt="进度提示" width="500" tabindex="0" loading="lazy"><figcaption>进度提示</figcaption></figure>
+<p>此外，为了确保软件的健壮性和用户操作的正确性，我们设计了一套完整的错误 处理机制。当用户的操作不符合要求或触发了边界条件时，系统会弹出相应的错误提 示，提示信息包括但不限于文件格式不支持、文件过大或网络问题等。</p>
+<figure><img src="@source/zh/guide/img/error_tips.png" alt="错误提示示例" width="500" tabindex="0" loading="lazy"><figcaption>错误提示示例</figcaption></figure>
+<h2 id="其他功能实现" tabindex="-1"><a class="header-anchor" href="#其他功能实现"><span>其他功能实现</span></a></h2>
+<p>我们的系统提供灵活的主题切换功能，旨在满足用户的个人喜好和环境需求，允 许用户在明亮和黑暗主题之间自由切换，并通过两套不同的QSS样式表为每个组件进 行单独样式调整，使其在不同主题下都能完美融合。此外，用户还可以自定义主题颜 色，将喜欢的颜色应用到界面高亮元素上，如按钮、进度条和链接文字等，进一步个 性化使用体验。系统通过设置i18文件夹下的QM文件，实现了多语言即时切换，确保 不同语言区的用户在软件的每一个交互点都有一致的体验，不受语言障碍困扰。</p>
+<p>在客户端安装部署方面，我们使用Advanced Installer工具将软件打包为安装包， 安装包包含了所有必要的依赖项和组件，使用户能够轻松完成安装、卸载和更新过程， 避免残留文件或配置。另外，通过对Windows注册表的修改，系统实现了在Windows环 境中集成右键菜单功能，用户可直接通过右键菜单唤起软件并处理选定图片，无需先 打开软件界面，极大提升了使用便捷性。</p>
+</div></template>
+
+

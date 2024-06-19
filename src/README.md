@@ -1,0 +1,97 @@
+---
+home: true
+icon: home
+title: Project home
+heroImage: /OCUR.svg
+bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
+bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
+bgImageStyle:
+  background-attachment: fixed
+heroText: OCUR
+tagline: Innovative Image Privacy Text Protection Solution.
+actions:
+  - text: Get Started  
+    icon: signs-post 
+    link: ./get-started/
+    type: primary
+
+  - text: User Guide  
+    icon: book  
+    link: ./guide/  
+    type: secondary
+
+highlights:
+  - header: Easy to install
+    image: /assets/image/box.svg
+    bgImage: https://theme-hope-assets.vuejs.press/bg/3-light.svg
+    bgImageDark: https://theme-hope-assets.vuejs.press/bg/3-dark.svg
+    highlights:
+      - title: Install the client in minutes by running the setup.exe installer.
+        link: https://github.com/handsomelky/OCUR/releases/latest 
+      - title: Quickly configure the server environment with simple command line operations by <code>sh setup.sh</code>.
+
+  - header: Rich Application Scenarios 
+    description: OCUR protects your privacy for various sensitive document scenarios.
+    image: /assets/image/application-scenarios.svg
+    bgImage: https://theme-hope-assets.vuejs.press/bg/2-light.svg
+    bgImageDark: https://theme-hope-assets.vuejs.press/bg/2-dark.svg
+    bgImageStyle:
+      background-repeat: repeat
+      background-size: initial
+    features:  
+      - title: ID Cards & Passports  
+        icon: id-card  
+        details: Ensure the security of your personal identity information.  
+  
+      - title: Bank Statements & Financial Documents  
+        icon: bank  
+        details: Protect your financial privacy and prevent information leakage.  
+  
+      - title: Medical Reports & Health Records  
+        icon: stethoscope  
+        details: Privacy protection is crucial for medical information.  
+  
+      - title: Legal Documents & Contracts  
+        icon: file-contract  
+        details: Protect the integrity and privacy of legal documents.  
+  
+      - title: Academic Papers & Research Materials  
+        icon: graduation-cap  
+        details: Ensure the originality and intellectual property of academic research.  
+  
+      - title: Product Manuals & Guides  
+        icon: toolbox  
+        details: Provide clear and protected product usage instructions.  
+  
+      - title: Corporate Contracts & Agreements  
+        icon: handshake  
+        details: Promote transparency and trust in business transactions.  
+  
+      - title: License Plate Privacy Protection  
+        icon: car  
+        details: Prevent misuse of license plate information and protect your driving privacy.  
+
+
+  - header: Customizable UI
+    description: Elegant and customizable outlook.
+    image: /assets/image/ui.svg
+    bgImage: https://theme-hope-assets.vuejs.press/bg/9-light.svg
+    bgImageDark: https://theme-hope-assets.vuejs.press/bg/9-dark.svg
+    highlights:
+      - title: Dark Mode
+        icon: circle-half-stroke
+        details: Switch between light and dark modes freely
+        link: https://theme-hope.vuejs.press/guide/interface/darkmode.html
+
+      - title: Customizable Theme Color
+        icon: palette
+        details: Set theme color with the brand color and even a picker
+        link: https://theme-hope.vuejs.press/guide/interface/theme-color.html
+
+
+copyright: false
+footer: 
+  <a href="https://beian.miit.gov.cn/" target="_blank">
+  粤ICP备2023083766号-2</a> | Copyright © 2024 R1ck
+footerHtml: true
+---
