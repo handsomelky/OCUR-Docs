@@ -22,6 +22,8 @@ export default hopeTheme({
 
   docsRepo: "handsomelky/OCUR-Docs",
 
+  docsDir: "src",
+
   darkmode: "toggle",
 
   locales: {
