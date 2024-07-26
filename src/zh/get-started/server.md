@@ -12,6 +12,7 @@ category:
 
 请确保已经安装了以下依赖软件：
 
+- gcc、make
 - Anaconda 或 Miniconda
 - CUDA、CuDNN
 - screen（可选）
@@ -28,7 +29,7 @@ cd OCUR
 运行以下命令建立 OCUR 系统服务端虚拟环境：
 
 ```shell
-bash setup_env.sh
+conda create -n ocur python=3.8
 ```
 
 运行完成后，激活虚拟环境：
@@ -37,22 +38,44 @@ bash setup_env.sh
 conda activate ocur
 ```
 
+安装依赖项
+
+``` shell
+pip install -r requirements_new.txt
+```
+
 运行 OCUR 服务端
 
 ```shell
-python3 web_server.py
+python3 webserver.py
 ```
 
-若想使用 PadddleOCR 作为 OCR 引擎，请在 PaddleOCR 服务端目录中运行脚本
+随后若想使用 PadddleOCR 作为 OCR 引擎，请打开一个新的终端，并进入另外提供的 PaddleOCR 服务端目录中
 
 ```shell
-bash setup_env.sh
+cd PaddleOCR
 ```
 
-打开一个新的终端，激活虚拟环境
+创建并激活虚拟环境
 
 ```shell
+conda create -n paddle_ocr python=3.8
 conda activate paddle_ocr
+```
+
+安装依赖项
+
+``` shell
+python3 -m pip install paddlepaddle-gpu==2.4.2.post112 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+pip install paddleocr==2.7.0.3
+
+cd ./deploy/pdserving/
+wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_server_gpu-0.8.3.post112-py3-none-any.whl
+pip3 install paddle_serving_server_gpu-0.8.3.post112-py3-none-any.whl
+wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_client-0.8.3-cp38-none-any.whl
+pip3 install paddle_serving_client-0.8.3-cp38-none-any.whl
+wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_app-0.8.3-py3-none-any.whl
+pip install paddle_serving_app-0.8.3-py3-none-any.whl
 ```
 
 运行 PaddleOCR 服务
